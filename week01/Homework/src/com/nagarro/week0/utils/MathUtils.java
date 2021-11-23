@@ -48,6 +48,20 @@ public class MathUtils {
             number = -number;
             isNegative = true;
         }
+
+        Stack<Integer> binaryStack = determineBitsStack(number);
+        String binaryRepresentation =determineBinaryRepresentationString(binaryStack);
+
+        if (isNegative){
+            String complement = complement(binaryRepresentation,32);
+            binaryRepresentation = completeTheBinaryRepresentationWithSign(binaryRepresentationWithSign(complement), complement);
+        }
+
+        return binaryRepresentation;
+    }
+
+    public static Stack<Integer> determineBitsStack(int number){
+        // Method stores the binary representation of a number within a stack of bits
         Stack<Integer> binaryStack = new Stack<Integer>();
         while (number != 0){
             // Extracting the remainders and adding them to the stack
@@ -56,18 +70,7 @@ public class MathUtils {
             number /= 2;
             binaryStack.push(remainder);
         }
-
-        String binaryRepresentation ="";
-        while (!binaryStack.isEmpty()){
-            // Using the specific structure of the stack, we can simply pop each element from the formed stack and add to an empty
-            // String in order to determine the binary representation of the given number
-            binaryRepresentation += Integer.toString(binaryStack.pop());
-        }
-        if (isNegative){
-            binaryRepresentation = addOneToBinaryNumber(complement(binaryRepresentation,32));
-        }
-
-        return binaryRepresentation;
+        return binaryStack;
     }
 
     public static String complement(String binaryRepresentation, int numberOfBits) {
@@ -88,16 +91,44 @@ public class MathUtils {
         return complementOfNumber;
     }
 
-    public static String addOneToBinaryNumber(String binaryRepresentation){
-        // Method adds one to a binary number
-        // ex. addOneToBinaryNumber(100) == 101
-        // Method is implemented just for binary numbers that have the right most bit equal to 0
-        String updatedBinaryRepresentation = binaryRepresentation;
-        updatedBinaryRepresentation = updatedBinaryRepresentation.substring(0,binaryRepresentation.length()-1) + "1";
-        if (binaryRepresentation.charAt(binaryRepresentation.length()-1) == '0'){
-            updatedBinaryRepresentation = updatedBinaryRepresentation.substring(0,binaryRepresentation.length()-1) + "1";
+    public static String binaryRepresentationWithSign(String binaryRepresentation){
+        // Method partially determine the signed binary representation of a number
+        Stack<Integer> bits = new Stack<Integer>();
+        bits.push(1);
+        int bitIndex = binaryRepresentation.length()-1;
+        while (Integer.parseInt(String.valueOf(binaryRepresentation.charAt(bitIndex))) != 0  && bitIndex >=0 ){
+            int bitAtIndex = Integer.parseInt(String.valueOf(binaryRepresentation.charAt(bitIndex)));
+            bits = (Stack<Integer>) addOneToBinaryNumber(bits,bitAtIndex).clone();
+            bitIndex--;
         }
-        return updatedBinaryRepresentation;
+        return determineBinaryRepresentationString(bits);
+    }
+
+    public static Stack<Integer> addOneToBinaryNumber(Stack<Integer> bits, int bit){
+        // Method adds one bit to a binary number
+        Stack<Integer> modifiedBits = (Stack<Integer>) bits.clone();
+        modifiedBits.pop();
+        if (bit == 1){
+            modifiedBits.push(0);
+        }
+        modifiedBits.push(1);
+        return modifiedBits;
+    }
+
+    public static String completeTheBinaryRepresentationWithSign(String binaryRepresentation, String complement){
+        // Method returns the signed binary representation of an integer
+        return complement.substring(0,complement.length()-binaryRepresentation.length())
+                                            + binaryRepresentation;
+    }
+
+    public static String determineBinaryRepresentationString(Stack<Integer> bits){
+        String binaryRepresentation = "";
+        while (!bits.isEmpty()){
+            // Using the specific structure of the stack, we can simply pop each element from the formed stack and add to an empty
+            // String in order to determine the binary representation of the given number
+            binaryRepresentation += Integer.toString(bits.pop());
+        }
+        return binaryRepresentation;
     }
 
     public static String determineBinaryRepresentationUsingJavaLibrary(int number){
