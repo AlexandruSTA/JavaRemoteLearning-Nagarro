@@ -1,8 +1,8 @@
 package com.nagarro.week0.models;
 
 /**
- * @Author: Alexandru-Ioan Stanea
- * @Version: 1.0
+ * @author: Alexandru-Ioan Stanea
+ * @version: 1.0
  * Designed and implemented Java class used to store valuable information regarding a personality
  * The introduced class encapsulates a parametrized constructor, alongside accessories to retrieve or update properties
  * associated with the class.

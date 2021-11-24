@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @Author: Stanea Alexandru-Ioan
- * @Version: 1.0
+ * @author: Stanea Alexandru-Ioan
+ * @version: 1.0
  * Repository class used to store multiple objects of type Personality
  * As attributes, the current class contains an ArrayList of Personality which can be initialized with an already existing
  * ArrayList of Personality, or it can be filled using parsePersonalitiesInformationsFromString(String[]) method which parses

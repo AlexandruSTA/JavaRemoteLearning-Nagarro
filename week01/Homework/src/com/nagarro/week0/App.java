@@ -9,8 +9,8 @@ import java.io.IOException;
 import java.util.Scanner;
 
 /**
- * @Author: Alexandru-Ioan Stanea
- * @Version: 1.0
+ * @author: Alexandru-Ioan Stanea
+ * @version: 1.0
  * Main class of the application used to launch a console-based menu and interact with the classes defined earlier
  */
 

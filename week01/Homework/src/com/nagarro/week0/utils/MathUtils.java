@@ -3,8 +3,8 @@ package com.nagarro.week0.utils;
 import java.util.Stack;
 
 /**
- * @Author: Stanea Alexandru-Ioan
- * @Version: 1.0
+ * @author: Stanea Alexandru-Ioan
+ * @version: 1.0
  * Class which contains static methods used for mathematical and conversion purposes only
  */
 
