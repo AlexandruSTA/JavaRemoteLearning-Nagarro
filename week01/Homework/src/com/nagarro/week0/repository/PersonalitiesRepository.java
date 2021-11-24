@@ -1,6 +1,7 @@
 package com.nagarro.week0.repository;
 
 import com.nagarro.week0.models.Personality;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,62 +12,51 @@ import java.util.List;
  * As attributes, the current class contains an ArrayList of Personality which can be initialized with an already existing
  * ArrayList of Personality, or it can be filled using parsePersonalitiesInformationsFromString(String[]) method which parses
  * the list of Strings given as parameter and retrieve valuable data related to personalities
- *
  */
 
 
 public class PersonalitiesRepository {
     private List<Personality> personalities = new ArrayList<Personality>();
-    public PersonalitiesRepository(){
+
+    public PersonalitiesRepository() {
         this.personalities = new ArrayList<Personality>();
     }
 
-    public PersonalitiesRepository(List<Personality> personalities){
-        this.personalities = personalities;
-    }
-
-    public void parsePersonalitiesInformationsFromString(String[] personalitiesInformations){
-        // Initialize data related to a Personality object
-        String firstName,lastName;
-        int yearOfBirth,yearOfDeath;
-        // Loop through each String within the list of Strings
-        for (String personalityInformation : personalitiesInformations){
+    public void parsePersonalitiesInformationsFromString(String[] personalitiesInformations) {
+        String firstName, lastName;
+        int yearOfBirth, yearOfDeath;
+        for (String personalityInformation : personalitiesInformations) {
             String[] personalityData = personalityInformation.split(",");
-            // Trim in case of extra white spaces
             firstName = personalityData[0].trim();
             lastName = personalityData[1].trim();
             // Verifying if both years exits
-            if (personalityData.length == 4 ) {
+            if (personalityData.length == 4) {
                 yearOfBirth = Integer.parseInt(personalityData[2].trim());
                 yearOfDeath = Integer.parseInt(personalityData[3].trim());
             }
             // Otherwise set yearOfDeath to 0
-            else{
-                yearOfBirth = Integer.parseInt(personalityData[2].trim().substring(2,6));
+            else {
+                yearOfBirth = Integer.parseInt(personalityData[2].trim().substring(2, 6));
                 yearOfDeath = 0;
             }
-            Personality personality = new Personality(firstName,lastName,yearOfBirth,yearOfDeath);
-            // Add the personality to the list if it does not exist yet
+            Personality personality = new Personality(firstName, lastName, yearOfBirth, yearOfDeath);
             if (!verifyDuplicate(personality)) {
                 this.personalities.add(personality);
             }
         }
     }
 
-
-    public boolean verifyDuplicate(Personality personality){
-        // Verify if a specific personality exists in the current list of personalities using method equals() present
-        // in Personality class
+    public boolean verifyDuplicate(Personality personality) {
         return this.personalities.contains(personality);
     }
 
     @Override
     public String toString() {
-        String personalitiesInformation = "\n================Personalities================\n";
+        StringBuilder personalitiesInformation = new StringBuilder("\n================Personalities================\n");
         int indexOfPersonality = 1;
-        for (Personality personality : this.personalities){
-            personalitiesInformation += indexOfPersonality++ + ". " + personality.toString()+"\n";
+        for (Personality personality : this.personalities) {
+            personalitiesInformation.append(indexOfPersonality++).append(". ").append(personality.toString()).append("\n");
         }
-        return personalitiesInformation;
+        return personalitiesInformation.toString();
     }
 }

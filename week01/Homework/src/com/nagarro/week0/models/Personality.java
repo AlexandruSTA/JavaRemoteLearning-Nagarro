@@ -54,11 +54,9 @@ public class Personality {
 
     @Override
     public String toString() {
-        String personalityInformation = "";
         if (yearOfDeath != 0) {
             return firstName + " " + lastName + " (" + yearOfBirth + ", " + yearOfDeath + ")";
-        }
-        else{
+        } else {
             return firstName + " " + lastName + " (" + yearOfBirth + ",-)";
         }
     }
@@ -67,8 +65,11 @@ public class Personality {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Personality that = (Personality) o;
-        return yearOfBirth == that.yearOfBirth && yearOfDeath == that.yearOfDeath && firstName.equals(that.firstName) && lastName.equals(that.lastName);
+        Personality personality = (Personality) o;
+        return yearOfBirth == personality.yearOfBirth
+                && yearOfDeath == personality.yearOfDeath
+                && firstName.equals(personality.firstName)
+                && lastName.equals(personality.lastName);
     }
 
 
