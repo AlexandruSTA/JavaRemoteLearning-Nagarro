@@ -1,6 +1,7 @@
 package com.nagarro.week1.models;
 
-import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author: Alexandru-Ioan Stanea
@@ -10,35 +11,31 @@ import java.lang.reflect.Array;
 
 public class Tank<T> {
     private final int MAX_NUMBER_OF_ITEMS = 100;
-    private T[] items;
-    private int currentSize;
+    private List<T> items;
 
-    public Tank(Class<T> classType) {
-        this.items = (T[]) Array.newInstance(classType, MAX_NUMBER_OF_ITEMS);
+    public Tank() {
+        this.items = new ArrayList<>();
     }
 
     public Tank(T[] items) {
-        this.currentSize = items.length;
-        this.items = items;
+        this.items = new ArrayList<T>(List.of(items));
     }
 
 
     public int getCurrentSize() {
-        return currentSize;
+        return items.size();
     }
 
 
-    public void push(T item) throws IndexOutOfBoundsException {
-        if (this.currentSize >= MAX_NUMBER_OF_ITEMS) throw new IndexOutOfBoundsException("Tank is full!");
-        this.items[this.currentSize++] = item;
+    public void push(T item) throws IllegalStateException {
+        if (getCurrentSize() >= MAX_NUMBER_OF_ITEMS) throw new IndexOutOfBoundsException("Tank is full!");
+        this.items.add(item);
     }
 
-    public T pop() throws IndexOutOfBoundsException {
+    public T pop() throws IllegalStateException {
         try {
-            T extractedElement = items[this.currentSize - 1];
-            items[this.currentSize - 1] = null;
-            this.currentSize--;
-            if (this.currentSize < 0) {
+            T extractedElement = items.remove(getCurrentSize()-1);
+            if (getCurrentSize() < 0) {
                 throw new IndexOutOfBoundsException("The current size of the tank is 0!");
             }
             return extractedElement;
@@ -47,31 +44,32 @@ public class Tank<T> {
         }
     }
 
-    public void clearMemory() {
+    public void cleanup() {
         this.items = null;
-        this.currentSize = 0;
     }
 
     @Override
     public String toString() {
-        String itemsStringRepresentation = "========================Items details========================\n";
-        for (int itemIndex = 0; itemIndex < this.currentSize; itemIndex++) {
-            if (items[itemIndex] != null) {
-                itemsStringRepresentation += (itemIndex + 1) + "." + items[itemIndex].toString() + "\n";
+        StringBuilder itemsStringRepresentation = new StringBuilder("========================Items details========================\n");
+        for (T item: items) {
+            if (item != null) {
+                itemsStringRepresentation.append(item).append("\n");
             }
         }
-        return itemsStringRepresentation;
+        return itemsStringRepresentation.toString();
     }
 
     @Override
-    public void finalize() throws Throwable {
+    protected void finalize() throws Throwable {
         try {
-            super.finalize();
             if (items != null) {
-                clearMemory();
+                cleanup();
             }
         } catch (Exception exc) {
             throw new Throwable("Error while cleaning up the memory");
+        }
+        finally{
+            super.finalize();
         }
 
     }

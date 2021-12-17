@@ -7,13 +7,14 @@ package com.nagarro.week1.models;
  */
 
 public class Administrator extends User {
+    {
+        System.out.println("Administrator Class Initialization Block");
+    }
+
     public Administrator() {
         System.out.println("Administrator Class Default Constructor Called");
     }
 
-    public Administrator(int id, String username) {
-        super(id, username);
-    }
 
     @Override
     public void adminOperations() {

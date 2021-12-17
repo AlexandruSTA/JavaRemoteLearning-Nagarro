@@ -14,6 +14,10 @@ public class User {
     static int userCount = 0;
     static final int currentUserId;
 
+    {
+        System.out.println("User Class Initialization Block");
+    }
+
     public User() {
         System.out.println("User Class Default Constructor Called");
         this.id = 0;

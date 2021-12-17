@@ -12,8 +12,7 @@ public class Person {
     private String firstName, surName;
 
     public Person() {
-        this.firstName = "";
-        this.surName = "";
+        this("","");
     }
 
     public Person(String firstName, String surName) {
@@ -25,14 +24,13 @@ public class Person {
         extractFirstNameAndSurnameFromFullName(fullName);
     }
 
-    public void extractFirstNameAndSurnameFromFullName(String fullName) {
+    private void extractFirstNameAndSurnameFromFullName(String fullName) {
         this.firstName = "";
         String[] nameParts = fullName.split(" ");
         for (int nameIndex = 0; nameIndex < nameParts.length - 1; nameIndex++) {
             this.firstName += nameParts[nameIndex] + " ";
         }
         this.surName = nameParts[nameParts.length - 1];
-
     }
 
     public String getFirstname() {
@@ -53,8 +51,9 @@ public class Person {
 
     @Override
     public String toString() {
+        if (this.firstName == null || this.surName == null) return "Person details are missing!\n";
         return !this.firstName.equals("") || !this.surName.equals("")
-                ? "Person Details:\nFirst name: " + this.firstName + "\nSurname: " + this.surName + "\nHash Code: " + this.hashCode() + "\n"
+                ? "\nFirst name: " + this.firstName + "\nSurname: " + this.surName + "\nHash Code: " + this.hashCode() + "\n"
                 : "Person details are missing!\n";
     }
 

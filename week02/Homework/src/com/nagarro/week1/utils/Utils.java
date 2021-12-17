@@ -22,18 +22,17 @@ public class Utils {
         Person fourthPerson = new Person("George Walker Bush");
         Person fifthPerson = new Person("George Walker Bush");
 
-
-        System.out.println("First Person\n" + firstPerson.toString());
-        System.out.println("Second Person\n" + secondPerson.toString());
-        System.out.println("Third Person\n" + thirdPerson.toString());
-        System.out.println("Fourth Person\n" + fourthPerson.toString());
-        System.out.println("Fifth Person\n" + fifthPerson.toString());
+        System.out.println("First Person\n" + firstPerson);
+        System.out.println("Second Person\n" + secondPerson);
+        System.out.println("Third Person\n" + thirdPerson);
+        System.out.println("Fourth Person\n" + fourthPerson);
+        System.out.println("Fifth Person\n" + fifthPerson);
 
         equalityAssert(firstPerson, secondPerson);
 
         firstPerson.setFirstname(secondPerson.getFirstname());
         firstPerson.setSurname(secondPerson.getSurname());
-        System.out.println("Updated first person\n" + firstPerson.toString());
+        System.out.println("Updated first person\n" + firstPerson);
 
         equalityAssert(firstPerson, secondPerson);
         equalityAssert(firstPerson, thirdPerson);
@@ -46,15 +45,14 @@ public class Utils {
 
     public static void testTankClass() {
         try {
-            /* USING PARAMETRIZED CONSTRUCTOR OF TANK CLASS */
-            Tank<Person> persons = new Tank<>(Person.class);
+            Tank<Person> persons = new Tank<>();
             for (int i = 0; i < 100; i++) {
                 Person person = new Person(generateRandomString(20), generateRandomString(15));
                 persons.push(person);
             }
             System.out.println("================================BEFORE POP================================");
             System.out.println(persons.getCurrentSize());
-            System.out.println(persons.toString());
+            System.out.println(persons);
 
             for (int i = 0; i < 50; i++) {
                 persons.pop();
@@ -62,11 +60,9 @@ public class Utils {
 
             System.out.println("================================AFTER POP================================");
             System.out.println(persons.getCurrentSize());
-            System.out.println(persons.toString());
-            persons.finalize();
+            System.out.println(persons);
 
 
-            //USING DEFAULT CONSTRUCTOR OF TANK CLASS
             Person[] pers = new Person[]{
                     new Person(generateRandomString(10), generateRandomString(10)),
                     new Person(generateRandomString(10), generateRandomString(10)),
@@ -74,16 +70,16 @@ public class Utils {
 
             };
             Tank<Person> updatedPersons = new Tank<>(pers);
-            System.out.println(updatedPersons.toString());
+            System.out.println(updatedPersons);
             System.out.println(updatedPersons.pop());
             System.out.println(updatedPersons.pop());
             System.out.println(updatedPersons.pop());
             updatedPersons.push(new Person(generateRandomString(10), generateRandomString(10)));
             System.out.println(updatedPersons.pop());
             System.out.println(updatedPersons.pop());
-            System.out.println(updatedPersons.toString());
+            System.out.println(updatedPersons);
 
-            updatedPersons.finalize();
+            System.gc();
 
         } catch (IndexOutOfBoundsException e) {
             System.out.println(e.getMessage());
@@ -117,6 +113,6 @@ public class Utils {
     }
 
     public static <S, T> void equalityAssert(S firstEntity, T secondEntity) {
-        System.out.println("Equivalence between entities ===> " + (firstEntity.equals(secondEntity) ? "Equal" : "Different"));
+        System.out.println("Equivalence between " + firstEntity + " and " + secondEntity + "===>" + (firstEntity.equals(secondEntity) ? "Equal\n" : "Different\n"));
     }
 }
