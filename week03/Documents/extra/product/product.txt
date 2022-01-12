@@ -1,0 +1,1 @@
+This sample contains a wrong java model of the products in a store
