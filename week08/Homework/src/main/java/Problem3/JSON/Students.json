@@ -1,0 +1,194 @@
+[
+  {
+    "firstName": "John",
+    "lastName": "Doe",
+    "address": {
+      "zipcode": "123",
+      "address": "Arkham",
+      "city": "Gotham"
+    },
+    "graduated": true,
+    "dateOfBirth": "11-11-1950",
+    "id": 1
+  },
+  {
+    "firstName": "PGrvTy02x6",
+    "lastName": "1MAR5eIRPE",
+    "address": {
+      "zipcode": "rF5jlYTbn8",
+      "address": "7K9OloBlXA",
+      "city": "6jS6yo0H5F"
+    },
+    "graduated": false,
+    "dateOfBirth": "16-03-2022",
+    "id": 1174928922303759519
+  },
+  {
+    "firstName": "GfLt3BqgPf",
+    "lastName": "J6ixgDfJuE",
+    "address": {
+      "zipcode": "l9REtnz32c",
+      "address": "7eEWv5TXzL",
+      "city": "T0Rp65kofH"
+    },
+    "graduated": true,
+    "dateOfBirth": "16-03-2022",
+    "id": 2306258632712278706
+  },
+  {
+    "firstName": "LfhEF0TC0n",
+    "lastName": "StHhQdXlNm",
+    "address": {
+      "zipcode": "2rXnYfiGBM",
+      "address": "Hp4dRIWgxH",
+      "city": "zDCYkKCE2v"
+    },
+    "graduated": false,
+    "dateOfBirth": "16-03-2022",
+    "id": 2613820712987476318
+  },
+  {
+    "firstName": "zQ8iyTakEk",
+    "lastName": "poN8COyqzo",
+    "address": {
+      "zipcode": "vYFL6TVLIC",
+      "address": "ScDKvUT7vM",
+      "city": "slEZJtWnmD"
+    },
+    "graduated": false,
+    "dateOfBirth": "16-03-2022",
+    "id": 7485861413097914609
+  },
+  {
+    "firstName": "IL6Vz3X3GM",
+    "lastName": "EABMPWuXU4",
+    "address": {
+      "zipcode": "jz035k8l0e",
+      "address": "fz6WDuJFO2",
+      "city": "8THlKgUvdy"
+    },
+    "graduated": true,
+    "dateOfBirth": "16-03-2022",
+    "id": 2764652732252315199
+  },
+  {
+    "firstName": "8IGZOdk4Zg",
+    "lastName": "SXa6ibx0s8",
+    "address": {
+      "zipcode": "FPJReihpnb",
+      "address": "qu4st22qZW",
+      "city": "6U7h5iTk83"
+    },
+    "graduated": false,
+    "dateOfBirth": "16-03-2022",
+    "id": 8970949854241914868
+  },
+  {
+    "firstName": "AhopPdQzDR",
+    "lastName": "62gGDi4Mbf",
+    "address": {
+      "zipcode": "pKBtjosylP",
+      "address": "bfraf2Lzld",
+      "city": "N2eeK2r9Ty"
+    },
+    "graduated": false,
+    "dateOfBirth": "16-03-2022",
+    "id": 544865273127788109
+  },
+  {
+    "firstName": "il2aljNfz2",
+    "lastName": "F8OiWLGG3N",
+    "address": {
+      "zipcode": "9qNLtQzKbP",
+      "address": "NsI6V7LxMq",
+      "city": "DPj37D4LeX"
+    },
+    "graduated": true,
+    "dateOfBirth": "16-03-2022",
+    "id": 325516227355568196
+  },
+  {
+    "firstName": "1Zx4BCdBgY",
+    "lastName": "sJ2xlrk7Gy",
+    "address": {
+      "zipcode": "CTfR7T20gs",
+      "address": "KXuGJvFc1g",
+      "city": "uqUz4kqDq1"
+    },
+    "graduated": false,
+    "dateOfBirth": "16-03-2022",
+    "id": 4808352975821687953
+  },
+  {
+    "firstName": "STISQ8RrpS",
+    "lastName": "uUolyh7C4h",
+    "address": {
+      "zipcode": "DcnnelphK5",
+      "address": "9qLdjffVNZ",
+      "city": "Nm94GR5WWB"
+    },
+    "graduated": false,
+    "dateOfBirth": "16-03-2022",
+    "id": 233489815319391897
+  },
+  {
+    "firstName": "AL2FtRWz5W",
+    "lastName": "fN2Of3jONg",
+    "address": {
+      "zipcode": "cu7f4Kdn1K",
+      "address": "TpIf0f0ZJa",
+      "city": "OZejS3KF2s"
+    },
+    "graduated": true,
+    "dateOfBirth": "16-03-2022",
+    "id": 8845992778232350258
+  },
+  {
+    "firstName": "3HFLAsxxFZ",
+    "lastName": "7LlP8lYai1",
+    "address": {
+      "zipcode": "fBXF2QuAmp",
+      "address": "0puGTEueHL",
+      "city": "36GHljzvnf"
+    },
+    "graduated": false,
+    "dateOfBirth": "16-03-2022",
+    "id": 8854043786722046586
+  },
+  {
+    "firstName": "ZyZkkhD4bk",
+    "lastName": "uZLqAhu1la",
+    "address": {
+      "zipcode": "NdaWVXn9eX",
+      "address": "C2ARJ6NXoW",
+      "city": "vS3603X5fS"
+    },
+    "graduated": true,
+    "dateOfBirth": "16-03-2022",
+    "id": 7071959723915860963
+  },
+  {
+    "firstName": "SK926LUpyB",
+    "lastName": "zePsQdB3Vk",
+    "address": {
+      "zipcode": "t1IryN5Ipn",
+      "address": "8aEx6gBz49",
+      "city": "JHfav9doNM"
+    },
+    "graduated": true,
+    "dateOfBirth": "16-03-2022",
+    "id": 7877390886230943735
+  },
+  {
+    "firstName": "FM8xOYFgYS",
+    "lastName": "WnoNm9eLr9",
+    "address": {
+      "zipcode": "LglB6xdvOr",
+      "address": "SCNRRmbHAD",
+      "city": "sEF38Qx6tH"
+    },
+    "graduated": true,
+    "dateOfBirth": "16-03-2022",
+    "id": 6703112875914640045
+  }
+]
